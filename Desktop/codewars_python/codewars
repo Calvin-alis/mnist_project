@@ -1,0 +1,1004 @@
+import os
+import json
+import logging
+from numpy import random as rn
+import math as mth
+
+print(os.listdir(os.getcwd()))
+
+
+def bool_to_word(boolean):
+    if boolean == True:
+        return 'Yes'
+    elif boolean == False:
+        return 'No'
+    else:
+
+        return 'No result'
+
+
+def is_square(n):
+    if n == 0:
+        return True
+    elif n > 0:
+        for i in range(0, n):
+            print('')
+
+    else:
+        return False
+
+
+def high_and_low(numbers):
+    number = []
+    numbers = numbers.split(' ')
+    for i in numbers:
+        number.append(int(i))
+
+    result = sorted(number)
+    result_str = str(result[0]) + ' ' + str(result[-1])
+
+    return str(result_str)
+
+
+def get_sum(a, b):
+    array = []
+    sum = 0
+
+    if a == b:
+        return a
+    if a != b :
+        if a < b:
+
+            for i in range(a, b + 1):
+
+                array.append(i)
+            for i in array:
+                sum += i
+
+        elif a > b:
+            for i in range(b, a):
+                print(i)
+                array.append(i)
+            for i in array:
+                sum += 1
+    print(sum)
+    return sum
+
+
+def better_than_average(class_points, your_points):
+    if isinstance(class_points, list) == True and isinstance(your_points, list) == True:
+        sum_class = 0
+        sum_points = 0
+        for i in class_points:
+            sum_class += i
+        for i in your_points:
+            sum_points += 1
+
+        return  False if sum_class / len(class_points) < sum_points / len(your_points) else True
+    elif isinstance(class_points, list) and isinstance(your_points, int):
+        sum_class = 0
+        for i in class_points:
+            sum_class += i
+        return  True if your_points > sum_class / len(class_points) else False
+
+def grow(arr):
+    val = 0
+    for i in range(0, len(arr)-1):
+        if i == 0:
+            val = arr[i] * arr[i+1]
+        else:
+            val = val * arr[i+1]
+        print(val)
+    return  val
+
+    print(res)
+
+
+def square_digits(num):
+    string = ""
+    for i in list(str(num)):
+        string  = string + str(int(int(i) * int(i)))
+
+    return  int(string)
+
+
+
+def find_smallest_int(arr):
+
+    min_value = arr[0]
+    for i in range(0, len(arr)):
+        if min_value > arr[i]:
+            min_value = arr[i]
+    return  min_value
+
+#print(find_smallest_int([78, 56, 232, 12, 11, 43]))
+
+
+
+def solution(string, ending):
+    res = ""
+    res_2 = ""
+    for i in list(string[-len(ending):]):
+        res  = res + str(i)
+    for i in list(ending):
+        res_2 = res_2 + str(i)
+
+    return  True if res_2 in res else False
+
+
+def nb_year(p0, percent, aug, p):
+    iterator = 0
+    while p0 < p:
+        iterator += 1
+        p0 = p0 + (((p0 * percent) / 100) + aug)
+    return  iterator
+
+def stray(arr):
+    one_value = 0
+    two_value = 0
+    mass = []
+    for value in set(arr):
+        mass.append(value)
+
+    for i in arr:
+        if i == mass[0]:
+            one_value += 1
+        elif i == mass[1]:
+            two_value += 1
+
+    return  mass[0] if one_value < two_value else mass[1]
+
+def arithmetic(a, b, operator):
+    if operator == 'add':
+        return  a + b
+    elif operator == 'subtract':
+        return  a - b
+    elif operator == 'multiply':
+        return  a * b
+    elif operator == 'divide':
+        if a == 0:
+            return  False
+        else:
+            return  a / b
+
+
+
+def min_value(digits):
+    arr = []
+    str_ = ''
+    for i in set(digits):
+        arr.append(i)
+    min = arr[0]
+    for i in range(0, len(arr) - 1):
+
+        if arr[i] > arr[i+1]:
+            min = arr[i]
+            arr[i] = arr[i+1]
+            arr[i+1] = min
+    for i in arr:
+        str_ = str_ + str(i)
+
+    return  int(str_)
+
+
+
+
+def two_sum(numbers, target):
+    result = []
+    new_numbers = sorted(numbers)
+
+    for i in range(0, len(new_numbers)):
+        if new_numbers[0] + new_numbers[i] == target:
+            return  ([0,i])
+
+
+#print(1/1)
+
+def series_sum(n):
+    arr = []
+    summa = 0
+    value = 1
+    for i in range(1, n+1):
+        if i == 1:
+            arr.append(1)
+            value += 3
+        else:
+            arr.append(1 / (value))
+            value += 3
+    for i in arr:
+        summa += i
+
+    res = "{:.2f}".format(summa)
+    return  str(res)
+
+#series_sum(3)
+
+
+
+def race(v1, v2, g):
+    kilometr = 0.0003
+    killometr_for_foot  = 3280.83
+    g = g / killometr_for_foot
+    v1 = v1 / killometr_for_foot
+    v2 = v2 / killometr_for_foot
+
+def nb_dig(n, d):
+    arr = []
+    new_str = ""
+    result = []
+    for i in range(0, n+1):
+        arr.append(i*i)
+        new_str = new_str + " " +  str(arr[i])
+
+
+def show_sequence(n):
+    sum = 0
+    str_result = ''
+    if n == 0:
+        str_result = str(0) + "=" + str(0)
+        return str_result
+    elif n < 0:
+        str_result = str(n) + "<" + str(0)
+        return  str_result
+    else:
+        for i in range(0, n+1):
+            sum += i
+            if i == 0:
+                str_result = str_result + str(i)
+            else:
+                str_result = str_result + "+" + str(i)
+
+        str_result = str_result + " = " + str(sum)
+        return  str_result
+
+
+def is_sorted_and_how(arr):
+    test_result = []
+    for i in arr:
+        test_result.append(i)
+    res  = sorted(test_result)
+    res_two = sorted(test_result, reverse= True)
+    summ = 0
+    summ_two = 0
+    for i in range(0, len(test_result)):
+        if res[i] == test_result[i]:
+            summ += 1
+        elif res_two[i] == test_result[i]:
+            summ_two += 1
+
+    if summ == len(arr):
+        return  'yes, ascending'
+    elif summ_two == len(arr):
+        return  'yes, descending'
+    else:
+        return  'no'
+
+def f(n):
+    if isinstance(n, int) and n > 0:
+        res = range(0, n +1 )
+        return  sum(res)
+    else:
+        return  False
+
+def day_first():
+    your_turn = int(input('Введите какую задачу хотите решить 1 - 4'))
+    if isinstance(your_turn, int):
+        if your_turn == 1:
+            your_c = int(input('Введите ваше число: '))
+            if your_c > 5:
+                return  your_c + 4
+            elif your_c % 10 == 0:
+                return  your_c / 2
+            elif your_c < 0:
+                return  your_c * (-1)
+            else:
+                return  0
+        elif your_turn == 2:
+            x = int(input('Введите число A(x): '))
+            y = int(input('Введите число A(y): '))
+            if x > 0 and y < 90:
+                return  '1'
+            elif x < 0 and y > 0:
+                return  '2'
+            elif x < 0 and y < 0:
+                return  '3'
+            elif x > 0 and y < 0:
+                return '4'
+            elif x == 0 and y == 0:
+                return  'x,y'
+            elif x == 0 and y != 0:
+                return  'x'
+            elif y == 0 and x!= 0:
+                return  'y'
+        elif your_turn == 3:
+            pass
+        elif your_turn == 4:
+            a = int(input('А = '))
+            b = int(input('B = '))
+            c = int(input('С = '))
+            d = b**2 + (-4)*a*c
+            if d > 0:
+                x1 = ((b * (-1)) - mth.sqrt(d)) / 2 * a
+                x2 = ((b * (-1)) + mth.sqrt(d)) / 2 * a
+                return  list(x1,x2)
+            elif d == 0:
+                x = (b * (-1)) / (2*a)
+                return  x
+            elif d < 0:
+                return  'no only complex value'
+
+def predict_age(*args):
+    summ = 0
+    for i in args:
+        summ += i * i
+    return int(mth.sqrt(summ) / 2)
+
+def increment_string(strng):
+    new_str = ""
+    last = strng[-1]
+    value = ''
+    mas = ['0','1','2','3','4','5','6','7','8','9']
+    for i in strng:
+        if i in mas:
+            va
+    if last in mas:
+        new_str = new_str + strng.replace(strng[-1], str(int(last) +1))
+        return  new_str
+    else:
+        new_str = new_str + strng + str(1)
+        return  new_str
+
+def row_sum_odd_numbers(n):
+    firstr_step = 1
+    arr = []
+   
+def min_max(lst):
+
+  result = sorted(lst)
+  return  [result[0], result[-1]]
+
+
+
+def round_to_next5(n):
+    if n % 5 == 0:
+        return n
+    else:
+        while n % 5 != 0 :
+            n += 1
+        return n
+def words_to_marks(s):
+    alpha = { 'a':1, 'b':2 , 'c':3, 'd':4, 'e':5,
+              'f':6, 'g':7, 'h':8, 'i':9, 'j':10,
+              'k':11, 'l':12, 'm':13, 'n':14,
+              'o':15, 'p':16, 'q':17, 'r':18, 's':19,
+              't':20, 'u':21, 'v':22,'w':23,'x':24,
+              'y':25, 'z':26}
+    summ = 0
+    for i in s:
+        if i in alpha.keys():
+            summ += alpha[i]
+    return  summ
+
+def count_red_beads(n):
+    if n < 2:
+        return  0
+    else:
+        summ = 0
+        res = []
+        for i in range(1, n):
+
+            summ += 2
+        return  summ
+
+def sum_digits(number):
+    if number >= 0:
+        summ = 0
+        string = str(number)
+        for i in string:
+            summ += int(i)
+        return  summ
+    elif number < 0:
+        summ = 0
+        string = str(number * (-1))
+        for i in string:
+            summ += int(i)
+        return  summ
+
+def disemvowel(string):
+    new_str = ""
+    bad_word = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y']
+    for i in string:
+        if i  in  bad_word:
+            del i
+        else:
+            new_str = new_str + i
+    return new_str
+
+def gps(s, x):
+    if len(x) <= 1:
+        return 0
+    else:
+        arr = []
+        some_test_value = []
+        result_list = []
+
+        for i in x:
+            arr.append(i)
+        for i in range(0, len(x) - 1):
+            some_test_value.append(x[i] - arr[i+1])
+
+        last_result = arr[-2] - arr[-1]
+        some_test_value.append(last_result)
+
+        for i in range(0, len(some_test_value)):
+            some_test_value[i] = some_test_value[i] * (-1)
+
+        for i in some_test_value :
+            result_list.append(((3600 * i) / s))
+        print(result_list)
+        maximum = result_list[0]
+        for i in range(0, len(result_list) - 1):
+            if result_list[i] > result_list[i+1]:
+                res = result_list[i+1]
+                result_list[i+1] = result_list[i]
+                result_list[i] = res
+        return  result_list[-1]
+
+
+
+
+
+def kebabize(string):
+    alpha = ['A', 'B'  'C' , 'D', 'E',
+             'F', 'G', 'H', 'I', 'J',
+             'K', 'L', 'M', 'N',
+             'O', 'P', 'Q', 'R', 'S',
+             'T', 'U', 'V', 'W', 'X',
+             'Y', 'Z']
+    new_str = ""
+    numbers = ['0', '1', '2', '3','4','5','6','7','8','9']
+    for i in string:
+        if i in numbers:
+            print('r')
+        elif i in alpha :
+            new_str = new_str + " " + str.lower(i)
+        else:
+            new_str = new_str + str.lower(i)
+
+    for i in range(0, len(new_str)):
+        if new_str[i] == ' ':
+            new_str = new_str.replace(' ', '')
+
+            
+
+
+    return  new_str.replace(' ', '-')
+
+# дорешать
+def unique_in_order(iterable: []):
+
+    res = set(iterable)
+    result = []
+    if len(iterable) > 2:
+        for i in range(0, len(iterable)-1):
+            if iterable[i] == iterable[i+1]:
+                pass
+            elif iterable[i] != iterable[i+1]:
+                result.append(iterable[i])
+
+        if iterable[-1] == iterable[-2]:
+            result.append(iterable[-1])
+        elif iterable[-1] != iterable[-2]:
+            pass
+        #print(result)
+        return  result
+    elif len(iterable) == 0:
+        return ['A']
+    else:
+        return  list(set(iterable))
+
+
+def flatten_and_sort(array):
+    res = []
+    for i in array:
+        for k in i:
+           res.append(k)
+
+    return  sorted(res)
+
+
+
+
+
+
+
+
+def is_triangle(a, b, c):
+    if  a + b > c and  b + c > a and a + c > b:
+        return  True
+    else:
+         return False
+
+
+
+
+def sequence_sum(begin_number, end_number, step):
+    res = []
+    for i in range(begin_number, end_number+1):
+        res.append(i)
+
+    new_res = sum(res[0:end_number:step])
+    return new_res
+
+
+
+
+def pingvin():
+    input_value = int(input())
+
+    print('   _~_   ' * input_value, sep= '  ' , end = '\n')
+    print('  (o o)  ' * input_value, sep= ' ', end = ' \n')
+    print(' /  V  \\ ' * input_value, sep = ' ', end = '\n')
+    print('/(  _  )\\' * input_value, sep= ' ', end = '\n')
+    print('  ^^ ^^  ' * input_value, sep= ' ', end = '\n')
+
+
+
+
+def sort_array(source_array):
+   index = []
+   non_index = []
+   value = []
+   non_value = []
+   if len(source_array) == 0:
+       return  source_array
+   for i in source_array:
+       if i % 2 != 0:
+           non_value.append(i)
+           non_index.append(source_array.index(i))
+       else:
+           value.append(i)
+           index.append(source_array.index(i))
+
+   non_value = sorted(non_value)
+   new_res_v = dict(zip(index, value))
+   new_res_n = dict(zip(non_index, non_value))
+   yh_suka = []
+
+   for i in range(0,len(source_array)):
+       yh_suka.append(1)
+   for key, c in new_res_n.items():
+       yh_suka[key] = c
+   for key, c in new_res_v.items():
+       yh_suka[key] = c
+
+
+   return  yh_suka
+
+
+def tickets(people):
+    price = 25
+    res = 0
+    summ = 0
+    for i in people:
+        print(summ, i)
+        if i - price == 0:
+            summ += 25
+        elif i - price != 0 :
+            a = i - price
+            summ -=  a + 25
+            if summ < 0:
+                return  'NO'
+
+    if summ < 0:
+        return 'NO'
+    else:
+        return 'YES'
+
+
+def why_i_so_stupid():
+    return  'You need to work everyday, it is you besicion for future life'
+
+def list_write(n):
+    result = []
+    for i in range(0 ,n):
+        res = int(input())
+        result.append(res)
+
+    print(result)
+
+
+def module_array(arr):
+    new_list = []
+    for i in arr:
+        if i < 0:
+            new_list.append(-(i))
+        elif i > 0:
+            new_list.append(abs(i))
+
+
+def dig_pow(n, p):
+    new_str = []
+    for i  in str(n):
+        new_str.append(int(i))
+    res = []
+    value = len(new_str)
+    new_p = p
+    for i in new_str:
+        res.append(i ** new_p)
+        new_p += 1
+
+    new_res = 0
+    for i in res:
+        new_res += i
+
+    test_zero = 1
+    some_res = new_res
+    new_n = n
+    print(some_res, new_n)
+    if some_res // new_n <= 0:
+        return -1
+
+    else:
+        return some_res // new_n
+
+
+
+
+def iq_test(numbers):
+    res = []
+
+    pass_value  = []
+    p = []
+
+    v_value = []
+    v = []
+    for i in numbers.split():
+        res.append(int(i))
+
+    for i in range(0, len(res)):
+        if  res[i] % 2 == 0:
+            pass_value.append(res[i])
+            p.append(i+1)
+        else:
+            v_value.append(res[i])
+            v.append(i+1)
+
+    if len(pass_value) > len(v_value):
+        return v[0]
+    else:
+        return p[0]
+
+def string_expansion(s):
+    number_list = ['0','1','2','3','4','5','6','7','8','9']
+    new_res = []
+    some_res =[]
+    for i in s:
+        if i in number_list:
+            new_res.append(i)
+        else:
+            some_res.append(i)
+    for i, key in zip(some_res,new_res):
+        print(i, key)
+    new_dict = dict(zip(some_res, new_res))
+
+    new_str = []
+    for i, key in new_dict.items():
+
+        new_str.append(int(key) * i)
+
+    res = ''
+    for i in new_str:
+        res = res + i
+    print(res)
+
+
+def is_valid(number):
+    summ = 0
+    for i in str(number):
+        summ += int(i)
+    return  True if number % summ == 0 else False
+
+def get_next(number):
+    while True:
+        number += 1
+        if is_valid(number) == True:
+            return number
+        else:
+            pass
+
+
+def get_series(count, start=0):
+        result = []
+        if start == 0:
+            while len(result) != count:
+                if start == 0:
+                    result.append(1)
+                    start += 1
+                elif is_valid(start) == True:
+                    result.append(start)
+                start += 1
+        else:
+            while len(result) != count :
+                start += 1
+                if is_valid(start) == True:
+                    result.append(start)
+
+        return  result
+
+def find_uniq(arr):
+    arr_1 = list(set(arr))
+    result_summ = 0
+    two_summ = 0
+    for i in arr:
+        if i == arr_1[0]:
+            result_summ += 1
+        elif i == arr_1[1]:
+            two_summ += 1
+    return arr_1[0] if result_summ < two_summ else arr_1[1]
+
+
+
+
+def what_time_is_it(angle):
+    var = 0.5
+    if angle >= 0 and angle <= 360:
+        hour = int((angle / var)/ 60)
+        min = angle / 0.5 - hour * 60
+
+
+        if angle  < 30:
+            hour = 12
+            min = angle / 0.5
+            if min < 10:
+                new_str = str(hour) + ':0' + str(int(min))
+                return  new_str
+            elif min > 10:
+                new_str = str(hour) + ':' + str(int(min))
+                return new_str
+        elif hour < 10:
+            new_Str = ''
+            if min < 10:
+                new_Str = '0' + str(hour) + ':' + '0' + str(int(min))
+            elif min > 10:
+                new_Str = '0' + str(hour) + ':' + str(int(min))
+
+            return new_Str
+        elif hour >= 10:
+            new_str = ''
+            if min < 10:
+                new_str = str(hour) + ':0' + str(int(min))
+            elif min > 10:
+                new_str = str(hour) + ':' + str(int(min))
+
+            return new_str
+
+
+
+def expanded_form(num):
+    res = []
+    second_res = []
+    for i in str(num):
+        res.append(int(i))
+
+    if len(res) != 0:
+        next_res = len(res)
+        for i in res:
+            if i  == 0:
+               next_res -= 1
+            else:
+                second_res.append(str(i) + '0' * (next_res - 1))
+                next_res -= 1
+
+    new_str = ''
+    for i in range(0,len(second_res)):
+        if i == 0:
+            new_str = new_str + str(second_res[i])
+        else:
+            new_str = new_str + ' + ' + str(second_res[i])
+
+    return  new_str.lstrip()
+
+
+
+def string_transformer(s):
+    string = []
+    for i in s:
+        string.append(i)
+
+    alpthed_A = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' , 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    althe_b = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j' , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    new_str = ''
+
+
+    for i in string:
+        if i in alpthed_A:
+            new_str = new_str + i.lower()
+        elif i in althe_b:
+            new_str = new_str + i.upper()
+        else:
+            new_str = new_str + ' '
+
+    res = ''
+    print(new_str)
+
+
+
+def new_func(arr):
+    return  [i** 2 for i in arr ]
+
+def string_Accuravy(string):
+    return  [i.lower() for i in string]
+
+
+def minimum_number(numbers):
+
+    def check_simple_value(simple_Value):
+        val = 0
+        for i in range(1,101):
+            if simple_Value % i == 0 and i != simple_Value and i != 1:
+                val += 1
+        return  True if val == 0  else False
+
+    summ_of_numbers = 0
+    value = 0
+    for i in numbers:
+        summ_of_numbers += i
+    new_value = summ_of_numbers
+    while check_simple_value(new_value) != True:
+        if check_simple_value(new_value) == True:
+             break
+        else:
+            value += 1
+            new_value += 1
+
+
+    return  value
+
+
+
+def sor_Array(arr):
+    return  sorted(arr)
+
+
+
+
+
+
+import  math
+def isPP(n):
+    def check_func(a, b , n = n):
+        return  True if a ** b == n else False
+
+    def is_simple(n):
+        res = 0
+        for i in range(1, 1000):
+            if n % i == 0 and i != 1 and i != n:
+                res += 1
+        return True if res == 0 else False
+    def test(n):
+        summ = 0
+        res = 2
+        res_two = 2
+        new_res = 0
+        if res ** res_two == n:
+            return [res, res_two]
+        elif is_simple(n) == False:
+            while res ** res_two != n:
+                if res ** res_two == n:
+                    return [res, res_two]
+
+                summ += 1
+                res_two += 1
+                if summ == 50:
+                    summ = 0
+                    res += 1
+                    res_two = 2
+            return [res, res_two]
+        else:
+            return None
+    return test(n)
+
+
+
+from sympy import perfect_power
+def testing(n):
+    def is_simple(n):
+        res = 0
+        for i in range(1, 1000):
+            if n % i == 0 and i != 1 and i != n:
+                res += 1
+        return True if res == 0 else False
+    if is_simple(n) == True:
+        return None
+    else:
+        return list(perfect_power(n))
+
+
+
+
+import math
+def new_isPP(n):
+	i, reslut = 2, []
+	while i < n:
+		if math.log(n, i) < 2:
+			break
+		if i ** round(math.log(n, i)) == n:
+			reslut.append([i, round(math.log(n, i))])
+		i += 1
+
+	return reslut[0] if reslut else None
+
+def result(n):
+    return  n ** n
+
+def print_res(a):
+    for i in range(1, a + 1):
+        print('\t\t*\t\t' * a)
+
+
+
+
+def tranc(s):
+    new_str = ''
+    for i in s:
+        if i == i.lower():
+            new_str = new_str + i.upper()
+        elif i == i.upper():
+            new_str = new_str + i.lower()
+        elif i == ' ':
+            new_str = new_str + ' '
+    res = []
+    for i in new_str.split(' '):
+        res.append(i)
+    new_res = ''
+
+    for i in res[::-1]:
+        new_res = new_res + ' ' + i
+
+    return  new_res.lstrip(' ')
+
+def dashatize(num):
+    arr = []
+    res = ''
+    test = True
+    if num is None:
+       return 'None'
+    else:
+        for i in str(num):
+            if i == '-':
+                pass
+            elif int(i)  % 2 == 0:
+                if int(i) < 0:
+                    res = res + str(int(i) * -1)
+                elif int(i) >= 0:
+                    res = res + str(i)
+            elif int(i) % 2 != 0:
+                res = res + '-' + str(i) + '-'
+
+    new_Res = res.replace('--', '-')
+    new_Res = new_Res.lstrip('-')
+
+    return new_Res.rstrip('-')
+
+from collections import Counter
+def highest_rank(arr):
+    new_c = Counter(arr)
+
+    re = {i : arr.count(i) for i in arr}
+
+
+    max_v = max(dict(re).values())
+    for items, key in dict(re).items():
+        if key == max_v:
+            return items
+
+
+
+
+
+def second_var(arr):
+    
+
+print(highest_rank([12, 10, 8, 12, 7, 6, 4, 10, 10]))
+
